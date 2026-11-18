@@ -6,7 +6,7 @@ with an AI coding agent working inside a JetBrains IDE–centered workflow.*
 
 ## The problem
 
-The deliverable was a booth mini game with an unusual constraint profile:
+The deliverable was a booth mini-game with an unusual constraint profile:
 it had to be *finished*, not just demoed. Sixty-second rounds, zero install,
 any device, readable across a crowded booth, and robust enough that event
 staff never have to touch it. The tech budget was deliberately tiny — one

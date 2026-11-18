@@ -14,9 +14,9 @@ npm-debug.log*
 Thumbs.db
 Desktop.ini
 
-# Editor / IDE
+# Editor / IDE (.idea project files are committed on purpose; only the
+# per-user workspace state stays out)
 .idea/workspace.xml
-.idea/tasks.xml
 .vscode/
 
 # Misc

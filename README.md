@@ -1,6 +1,6 @@
 # Sky Rush: 60-Second Reflex Range
 
-An original browser mini game built for a **Cloud9 event booth** — Category 3
+An original browser mini-game built for a **Cloud9 event booth** — Category 3
 (Event Mini Game) of the *Cloud9 x JetBrains: Sky's The Limit Hackathon 2026*.
 
 One round lasts exactly 60 seconds. Targets pop up at random spots in the
@@ -10,7 +10,7 @@ greedy clicking. When the clock runs out, the game shows your score, hits,
 accuracy, and best combo — and the best five pilots of the day go on the
 booth leaderboard.
 
-Everything is hand-written HTML, CSS, and JavaScript. There is no build step,
+Everything is handwritten HTML, CSS, and JavaScript. There is no build step,
 no framework, no external font, image, or audio file: all artwork is drawn on
 a `<canvas>` at runtime and all sound effects are synthesized with WebAudio.
 
@@ -35,12 +35,12 @@ server to run it.
 
 ## Controls
 
-| Action | Mouse / keyboard | Touch |
-| --- | --- | --- |
-| Hit a target | Click it | Tap it |
-| Start / play again | Button, or `Space` / `Enter` | Button |
-| Pause / resume | Pause button, `P`, or `Esc` | Pause button |
-| Mute / unmute | Speaker button or `M` | Speaker button |
+| Action             | Mouse / keyboard             | Touch          |
+| ------------------ | ---------------------------- | -------------- |
+| Hit a target       | Click it                     | Tap it         |
+| Start / play again | Button, or `Space` / `Enter` | Button         |
+| Pause / resume     | Pause button, `P`, or `Esc`  | Pause button   |
+| Mute / unmute      | Speaker button or `M`        | Speaker button |
 
 The game also **pauses automatically** if the browser tab loses visibility
 (screensaver, staff switching apps), so a round is never lost to a booth
@@ -73,7 +73,7 @@ screen (to pull the next player in) and the end screen.
 
 ## Methodology
 
-**The problem.** A booth mini game lives or dies on queue math and failure
+**The problem.** A booth mini-game lives or dies on queue math and failure
 modes, not on content depth:
 
 - A line of attendees is waiting; a round must be short, self-explanatory,
@@ -119,22 +119,45 @@ js/leaderboard.js   localStorage top-5 leaderboard
 js/game.js          Game state machine, spawning, scoring, canvas rendering
 AI_SHOWCASE.md      AI-assisted workflow story (bonus prize write-up)
 VIDEO_SCRIPT.md     Demo video narration script + shot list
+docs/               Screenshot of the project open in IntelliJ IDEA
 ```
 
 ## Built with JetBrains tools
 
-This project was developed in **IntelliJ IDEA Community** as a plain static
-web project: the repository folder opens directly in the IDE, with the
-built-in HTML/CSS/JavaScript editing, live preview, and the integrated
-terminal used for the local static-server test loop. The AI-assisted parts
-of the workflow — drafting game-logic iterations, reviewing the state
-machine, and generating test checklists — are described in
-[AI_SHOWCASE.md](AI_SHOWCASE.md).
+This project is developed and checked in **IntelliJ IDEA 2025.3**
+(build 253.28294.334), used in its free Community mode — since 2025.3
+JetBrains ships a single unified distribution whose no-cost tier is the
+Community feature set. The repository folder opens directly as a project
+in the IDE; the committed `.idea/` folder is the one the IDE generated
+for it, and the game code was reviewed with the built-in
+HTML/CSS/JavaScript editing:
 
-> **Placeholder:** exact IDE version, AI assistant configuration, and any
-> screenshots of the development session will be filled in from the actual
-> workstation before final submission. Nothing in this section should be
-> treated as a version-specific claim until then.
+![IntelliJ IDEA with the Sky Rush project open](docs/idea-workspace.png)
+
+Two of the IDE's own engines were also run over the project from the
+command line, using the same installation:
+
+- **Code formatter** (`idea.sh format`): run over `index.html`,
+  `css/style.css`, and the three files in `js/`. `index.html` was
+  reformatted (indentation and line wrapping only — no content
+  changes); the check pass reported the CSS and JavaScript files
+  already conform to the IDE's default code style.
+- **Offline inspections** (`idea.sh inspect`): run over the whole
+  project using the committed inspection profile
+  (`.idea/inspectionProfiles/Project_Default.xml` — 50 correctness
+  checks for HTML, CSS, and JavaScript: unresolved references, unused
+  symbols, invalid tags/attributes, duplicate declarations, and
+  similar). The HTML/CSS/JavaScript inspections reported no problems
+  in the code. All 20 findings were in the Markdown documentation —
+  hyphenation and table-formatting nits, plus spell-checker false
+  positives on code identifiers (`lerp`, `pointerdown`, hex colours).
+  The genuine documentation nits were fixed, and a verification
+  re-run confirmed the fixes; the findings that remain are the false
+  positives and two weak table-formatting style warnings.
+
+The AI-assisted parts of the workflow — drafting game-logic iterations,
+reviewing the state machine, and generating test checklists — are
+described in [AI_SHOWCASE.md](AI_SHOWCASE.md).
 
 ## License
 
