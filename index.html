@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Sky Rush: 60-Second Reflex Range</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main id="booth">
+    <header id="hud" aria-label="Game status">
+      <div class="hud-cell">
+        <span class="hud-label">Score</span>
+        <span class="hud-value" id="hud-score">0</span>
+      </div>
+      <div class="hud-cell hud-time">
+        <span class="hud-label">Time</span>
+        <span class="hud-value" id="hud-time">60</span>
+      </div>
+      <div class="hud-cell">
+        <span class="hud-label">Combo</span>
+        <span class="hud-value" id="hud-combo">x1</span>
+      </div>
+      <div class="hud-cell hud-actions">
+        <button id="btn-pause" class="hud-btn" type="button" title="Pause (P)">&#10073;&#10073;</button>
+        <button id="btn-mute" class="hud-btn" type="button" title="Toggle sound (M)">&#128266;</button>
+      </div>
+    </header>
+
+    <section id="arena-wrap">
+      <canvas id="game-canvas" aria-label="Sky Rush play arena"></canvas>
+
+      <!-- ATTRACT / IDLE SCREEN -->
+      <div id="screen-attract" class="screen">
+        <h1 class="game-title">SKY&nbsp;RUSH</h1>
+        <p class="game-subtitle">60-Second Reflex Range</p>
+        <p class="attract-blurb">
+          Tap the blue targets before they vanish.<br>
+          Gold is worth big points. <span class="decoy-word">Red X targets are traps</span> &mdash; don&rsquo;t touch them!
+        </p>
+        <button id="btn-start" class="big-btn pulse" type="button">TAP TO START</button>
+        <div class="attract-board">
+          <h2>Top Pilots</h2>
+          <ol id="attract-leaderboard" class="leaderboard"></ol>
+          <p id="attract-board-empty" class="board-empty">No scores yet &mdash; be the first!</p>
+        </div>
+      </div>
+
+      <!-- PAUSE SCREEN -->
+      <div id="screen-pause" class="screen hidden">
+        <h2 class="screen-title">PAUSED</h2>
+        <p class="screen-note">The clock is stopped. Ready when you are.</p>
+        <button id="btn-resume" class="big-btn" type="button">RESUME</button>
+        <button id="btn-quit" class="ghost-btn" type="button">End round</button>
+      </div>
+
+      <!-- END SCREEN -->
+      <div id="screen-end" class="screen hidden">
+        <h2 class="screen-title">TIME UP!</h2>
+        <p class="final-score"><span id="final-score">0</span></p>
+        <div class="final-stats">
+          <div class="stat"><span class="stat-label">Hits</span><span class="stat-value" id="final-hits">0</span></div>
+          <div class="stat"><span class="stat-label">Accuracy</span><span class="stat-value" id="final-accuracy">0%</span></div>
+          <div class="stat"><span class="stat-label">Best Combo</span><span class="stat-value" id="final-combo">x1</span></div>
+        </div>
+
+        <form id="initials-form" class="initials-form hidden">
+          <label for="initials-input">You made the board! Enter your initials:</label>
+          <div class="initials-row">
+            <input id="initials-input" type="text" maxlength="3" autocomplete="off"
+                   autocapitalize="characters" spellcheck="false" placeholder="AAA">
+            <button class="big-btn small" type="submit">SAVE</button>
+          </div>
+        </form>
+        <p id="saved-note" class="saved-note hidden">Score saved. Nice flying!</p>
+
+        <div class="end-board">
+          <h2>Top Pilots</h2>
+          <ol id="end-leaderboard" class="leaderboard"></ol>
+          <p id="end-board-empty" class="board-empty">No scores yet &mdash; be the first!</p>
+        </div>
+
+        <button id="btn-again" class="big-btn pulse" type="button">PLAY AGAIN</button>
+      </div>
+    </section>
+
+    <footer id="booth-footer">
+      <p>One round = 60 seconds &middot; Mouse or touch &middot; Built for the booth queue</p>
+    </footer>
+  </main>
+
+  <script src="js/audio.js"></script>
+  <script src="js/leaderboard.js"></script>
+  <script src="js/game.js"></script>
+</body>
+</html>

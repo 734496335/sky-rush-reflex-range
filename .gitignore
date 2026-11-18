@@ -1,0 +1,24 @@
+# Dependencies (none today, kept for future tooling)
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editor / IDE
+.idea/workspace.xml
+.idea/tasks.xml
+.vscode/
+
+# Misc
+*.tmp
+*.swp
